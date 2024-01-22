@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+        }
+        *{
+            padding:0;
+            margin:0;
+        }
+        .container{
+            width:100%;
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+        .gallery{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+           align-items: center;
+           padding:30px;
+        }
+        .gallery img{
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            padding:5px;
+            margin:10px;
+            transition: 1s;
+            
+        }
+        .gallery img:hover{
+         
+          box-shadow: 0px 0px 10px 15px gray;
+          transform: scale(0.8) rotate(-10deg);
+          
+        }
+        .popup{
+            position: fixed;
+            top:70px;
+            left:500px;
+            display:none;
+           
+            
+        }
+        .popup img{
+            width:400px;
+            height: 500px;
+            object-fit: cover;
+            position: absolute;
+            top:20px;
+            left:60px;
+            border-radius: 10px;
+            
+        }
+        .close-pop {
+            position: absolute;
+            top:25px;
+            font-size: 40px;
+            left: 420px;
+            cursor: pointer;
+            text-shadow: 2px -4px 3px white;
+           
+        }
+        .closepopactive{
+            color: white;
+            animation: closepopup 1.5s;
+            z-index: 10;
+           border-color: 2px black;
+            font-weight: 90;
+        }
+        .active{
+            border-radius: 30px;
+            box-shadow: 0px 0px 80px 10px rgb(231, 198, 198);
+            animation: zoom 1s;
+            padding:5px;
+            z-index: 10;
+           
+         
+        }
+        @keyframes zoom {
+            0%{
+                transform: scale(0.0);
+
+            }
+            
+            100%{
+                transform: scale(1.0);
+            }
+        }
+
+        @keyframes closepopup {
+            0%{
+                transform: scale(0.0);
+
+            }
+            90%{
+                transform: scale(0.0);
+            }
+            100%{
+                transform: scale(1.0);
+            }
+        }
+
+        .active_container{
+            background-color:bisque;
+         
+            transition: 3s;
+            
+        }
+        .empty{
+            border:2px solid black;
+            z-index: 8;
+            width: 100%;
+            height: 100vh;
+            position:fixed;
+            top: 0;
+            left:0;
+            
+            
+        }
+        .active_empty{
+            background-color: rgba(0, 0, 0, 0.678);
+            transition: 2s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="gallery">
+            <img src="https://i.pinimg.com/564x/22/ea/aa/22eaaaca3ee83cfe7f04909dd2108a95.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/b8/fe/18/b8fe185770d09f819047aebcbebf9899.jpg" alt="">
+            <img src="https://i.pinimg.com/564x/d5/a3/35/d5a33524aa92fa99bcae39a2ae6343de.jpg" alt="">
+            <img src="https://i.pinimg.com/564x/77/92/f5/7792f54635f9ebab9d9ba5f957dcfbf3.jpg" alt="">
+            <img src="https://i.pinimg.com/736x/c2/0c/96/c20c96719b79287824f053b7407f9b3b.jpg" alt="">
+            <img src="https://i.pinimg.com/474x/8d/c7/f9/8dc7f93e280d9db61bcfea851384337b.jpg" alt="">
+            <img src="https://i.pinimg.com/474x/d3/97/bf/d397bf301f8e0fe9230a4443f366104d.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/4e/29/fa/4e29faa0b34719fff48a971d6a133497.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/c3/63/f7/c363f7daabb58719481ad7d0bc4fb131.jpg" alt="">
+            <img src="https://i.pinimg.com/564x/e1/e5/e8/e1e5e8a36b5164d7ef635e14fcc3c285.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/bf/05/4d/bf054d8133d003da95d2b7fefcfaa7fd.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/4e/29/fa/4e29faa0b34719fff48a971d6a133497.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/45/3c/8a/453c8a1730eb59fffa38db9b6e42f61d.jpg" alt="">
+            <img src="https://i.pinimg.com/564x/df/ab/17/dfab1792b2db79afaadac2c9b5b0f163.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/cb/3b/65/cb3b658085e76ac855a4b6c0d6fb2c65.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/57/fe/73/57fe7370bf32d93ed7a90ba04bc0da67.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/29/ce/37/29ce3766f642f209efc4dfdbd640a624.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/72/c9/54/72c954c798a8d47bb30ff5732ca8ca0c.jpg" alt="">
+            <img src="https://i.pinimg.com/474x/eb/27/e0/eb27e00f439b6c716f9c5e4a51569031.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/71/c2/6f/71c26f757309fb38f22e605e2febddb4.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/39/24/11/392411741b21615d334ebde115b1cae4.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/72/15/01/72150174d6efa138227864ab6e80ace2.jpg" alt="">
+            <img src="https://i.pinimg.com/474x/29/e6/2f/29e62fa86bd41b4f2fa8dfe6296ce347.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/28/ef/ce/28efce3ce4ec7a125942e4382d129eb3.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/d0/63/f9/d063f90b7bb3bf4af98cc18e8474cf39.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/47/26/92/472692e5005b03038b5af26c54a0d4c6.jpg" alt="">
+            <img src="https://i.pinimg.com/564x/c2/5b/7c/c25b7cc4c3979b250f60a84f4756de1e.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/d2/62/76/d262767d993e35fab5e7baa5d7fab449.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/98/39/9d/98399dc9921c73f12255848a644ee880.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/b0/6c/45/b06c455dae0bc3636b7f869962aca89d.jpg" alt="">
+     
+        </div>
+        <div class="popup">
+            <div class="empty">
+            
+            </div>
+            
+            <img src="https://i.pinimg.com/236x/52/09/52/520952498183ba611ebdb6edf1af02ec.jpg" alt="">
+            <span class="close-pop">X</span>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        let images = document.querySelectorAll(".gallery img");
+        console.log(images);
+        let popup =document.querySelector(".popup");
+        let popupimg =document.querySelector(".popup img");
+        let closePopup = document.querySelector(".close-pop");
+        let active_container = document.querySelector(".container")
+        let empty = document.querySelector(".empty")
+
+        for (img of images){
+            img.onclick=function(){
+             
+               popup.style.display="block";
+               popupimg.src=this.getAttribute('src')
+
+                   
+               popupimg.classList.add("active")
+
+               closePopup.classList.add("closepopactive")
+
+               active_container.classList.add("active_container")
+               empty.classList.add("active_empty");
+               
+            }
+        }
+        closePopup.onclick = function () {
+           popup.style.display = "none";
+       }
+
+
+
+    </script>
+</body>
+</html>
